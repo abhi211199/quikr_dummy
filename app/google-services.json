@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "22180868922",
+    "firebase_url": "https://quikrdummy.firebaseio.com",
+    "project_id": "quikrdummy",
+    "storage_bucket": "quikrdummy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22180868922:android:5b336374c75d7b25229603",
+        "android_client_info": {
+          "package_name": "com.example.quikr_dummy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22180868922-6idhs6a5j0f7mi90dq8t2g7u5fl27id7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quikr_dummy",
+            "certificate_hash": "bfc62e71ab39ea1bc432de5420ed379ea2b2be07"
+          }
+        },
+        {
+          "client_id": "22180868922-01cd5f43hpduaohvkbjm5gvila78j4c8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7NwP14fIj0-3EqQMRbW2z3KUyQuWPodk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22180868922-01cd5f43hpduaohvkbjm5gvila78j4c8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
