@@ -1,6 +1,7 @@
 package com.example.quikr_dummy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -31,12 +33,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         this.context = context;
     }
 
+
     @Override
 
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.text, null);
+        View view = inflater.inflate(R.layout.text,parent,false);
         return new MyHolder(view);
     }
 
@@ -51,6 +54,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
                 .get()
                 .load(mylist.get("img").toString())
                 .into(holder.img);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+                                               @Override
+                                               public void onClick(View v) {
+                                                   Log.e("aa",mylist.get("vid").toString());
+                                                   Intent intent = new Intent(context,items.class);
+                                                   intent.putExtra("name",mylist.get("name").toString());
+                                                   intent.putExtra("price",mylist.get("price").toString());
+                                                   intent.putExtra("desc",mylist.get("desc").toString());
+                                                   intent.putExtra("img",mylist.get("img").toString());
+                                                   intent.putExtra("vid",mylist.get("vid").toString());
+                                                   context.startActivity(intent);
+                                               }
+                                           });
 //        holder.img.setImageBitmap(getBitmapFromURL(mylist.get("img").toString()));
 //        holder.ref.setText("Price of one Item:  " + mylist.get(2));
 
@@ -89,17 +105,35 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         TextView ref, name, price;
         CardView cardView;
         ImageView img;
+        LinearLayout main;
 
         public MyHolder(View itemView) {
             super(itemView);
+//            itemView.setOnClickListener(this);
             name = (TextView) itemView.findViewById(R.id.name);
             price = (TextView) itemView.findViewById(R.id.price);
             img = (ImageView)itemView.findViewById(R.id.image);
            // ref = (TextView) itemView.findViewById(R.id.price);
-            cardView = (CardView) itemView.findViewById(R.id.card);
+            cardView = (CardView) itemView.findViewById(R.id.text);
+//            main = (LinearLayout) itemView.findViewById(R.id.main);
+//            main.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Log.e("aa","aa");
+//                  //  Toast.makeText(itemView.getContext(), "Position:" + Integer.toString(getPosition()), Toast.LENGTH_SHORT).show();
+////                    if(clicklistener !=null){
+////                        clicklistener.itemClicked(v,getAdapterPosition());
+////                    }
+//                }
+//            });
 
 
         }
 
+//        @Override
+//        public void onClick(View v) {
+//            Log.e("aa","aa");
+//        }
     }
+
 }
