@@ -8,13 +8,11 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:layout_marginLeft="40dp"
+    android:layout_marginTop="40dp"
     android:layout_marginRight="40dp"
     android:layout_marginBottom="40dp"
-    android:layout_marginTop="40dp"
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:paddingLeft="20dp"
-    cardview:cardBackgroundColor="@color/colorPrimaryDark"
+    cardview:cardBackgroundColor="#F6FAF9"
     cardview:cardCornerRadius="20dp"
     cardview:cardElevation="0dp">
 

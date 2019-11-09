@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
@@ -27,6 +28,7 @@ import java.util.Map;
 public class list extends AppCompatActivity {
 
     Map<String,Object> l;
+    String id;
     Integer flag=0;
     List<List<String> > mp=new ArrayList<List<String>>() {};
     Map <String, Pair<String,String>> myMap = new HashMap<String, Pair<String, String>>();
@@ -42,6 +44,8 @@ public class list extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        Intent intent=getIntent();
+        id=intent.getStringExtra("id");
         fetch();
     }
 
@@ -69,8 +73,8 @@ public class list extends AppCompatActivity {
 //                                cities.add(doc.getString("name"));
                             }
                         }
-                        Log.e("TAG", "Current cites in CA: " +m.size());
-                        mAdapter = new MyAdapter(list.this,m);
+//                        Log.e("TAG", "Current cites in CA: " +m.size());
+                        mAdapter = new MyAdapter(list.this,m,id);
                         recyclerView.setAdapter(mAdapter);
                         recyclerView.setLayoutManager(layoutManager);
                     }

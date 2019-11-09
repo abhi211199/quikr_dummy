@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,10 +28,12 @@ import java.util.Map;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
     private List<Map<String, Object>> list;
     private Context context;
+    private String id;
 
-    public MyAdapter(Context context, List<Map<String, Object>> list) {
+    public MyAdapter(Context context, List<Map<String, Object>> list, String id) {
         this.list = list;
         this.context = context;
+        this.id = id;
     }
 
 
@@ -57,13 +60,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
                                                @Override
                                                public void onClick(View v) {
-                                                   Log.e("aa",mylist.get("vid").toString());
+                                                   Log.e("aa",id);
+//                                                   Toast.makeText(context,mylist.get("comments").toString(),Toast.LENGTH_LONG).show();
                                                    Intent intent = new Intent(context,items.class);
+                                                   intent.putExtra("id",id);
                                                    intent.putExtra("name",mylist.get("name").toString());
                                                    intent.putExtra("price",mylist.get("price").toString());
                                                    intent.putExtra("desc",mylist.get("desc").toString());
                                                    intent.putExtra("img",mylist.get("img").toString());
                                                    intent.putExtra("vid",mylist.get("vid").toString());
+                                                   intent.putExtra("comments",mylist.get("comments").toString());
                                                    context.startActivity(intent);
                                                }
                                            });

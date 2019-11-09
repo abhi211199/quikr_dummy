@@ -41,8 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         pass1=findViewById(R.id.pass);
         pass2=findViewById(R.id.pass1);
         pass3=findViewById(R.id.pass2);
-
-
+        progressBar=new ProgressDialog(this);
     }
 
     @Override
@@ -55,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     public void signUp(View  View) {
         progressBar.setCancelable(false);
         progressBar.show();
-        if(name.getText()!=null && pass1.getText().toString().equals(pass2.getText().toString()) && pass1.getText().length()>6)
+//        if(name.getText()!=null && pass1.getText().toString().equals(pass2.getText().toString()) && pass1.getText().length()>6)
         {
             mAuth.createUserWithEmailAndPassword(email1.getText().toString(), pass1.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -80,8 +79,9 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
         }
-        else
-            Toast.makeText(LoginActivity.this,"Please fill the form properly",Toast.LENGTH_LONG).show();
+//        else
+//        {Toast.makeText(LoginActivity.this,"Please fill the form properly",Toast.LENGTH_LONG).show();
+//            progressBar.hide();}
     }
 
     public void signIn(View view)
@@ -116,7 +116,9 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent=new Intent(this,Profile.class);
             intent.putExtra("id",user.getUid());
             startActivity(intent);
-            finish();
+//            finish();
+            intent=new Intent(this,MainActivity.class);
+            startActivity(intent);
         }
     }
 
